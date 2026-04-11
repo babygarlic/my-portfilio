@@ -43,7 +43,7 @@ export default function Navigation() {
     }, [navItems]);
 
     return (
-        <header className="fixed left-0 w-full z-50 bg-black/50 backdrop-blur shadow-[0_0_25px_5px_rgba(34,211,238,0.4)]">
+        <header className="fixed left-0 w-full z-50 bg-black/50 backdrop-blur">
             <nav className="mx-auto w-full flex justify-between items-center py-4 px-8 uppercase ">
                 <h1 className="text-xl font-bold tracking-tighter">ARCHITECT.OS</h1>
                 <ul className="flex gap-6 text-sm font-medium">

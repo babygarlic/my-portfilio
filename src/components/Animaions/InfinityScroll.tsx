@@ -1,26 +1,28 @@
 'use client';
 export default function InfinityScroll() {
         const items = [
-        { name: "docker", src: "/dockericon.svg", color: "text-blue-400" },
-        { name: "next", src: "next.svg", color: "text-cyan-400" },
-        { name: "FastAPI", src: "/fastapi.svg", color: "text-emerald-400" },
-        { name: "PostgreSQL", src: "/postgresql.svg", color: "text-indigo-400" },
-        { name: "TensorFlow", src: "/tensorflow.svg", color: "text-orange-400" },
-        { name: "rust", src: "/rust.svg", color: "text-red-400" },
-        { name: "python", src: "/python.svg", color: "text-yellow-400" },
-        { name: "redis", src: "/redis.svg", color: "text-red-500" },
-        { name: "kubernetes", src: "/kubernetes.svg", color: "text-blue-500" },
-        { name: "aws", src: "/aws.svg", color: "text-orange-500" },
+        { name: "react", src: "/react.svg", color: "text-blue-500" },
+        { name: "docker", src: "/docker-mark-ocean-blue.svg", color: "text-blue-400" },
+        { name: "next", src: "/Next.js.svg", color: "text-cyan-400" },
+        { name: "FastAPI", src: "/FastAPI.svg", color: "text-emerald-400" },
+        { name: "PostgreSQL", src: "/PostgresSQL.svg", color: "text-indigo-400" },
+        { name: "TensorFlow", src: "/TensorFlow.svg", color: "text-orange-400" },
+        { name: "Nginx", src: "/Nginx.svg", color: "text-green-500" },
+        { name: "python", src: "/Python.svg", color: "text-yellow-400" },
+        { name: "javaScript", src: "/JavaScript.svg", color: "text-yellow-300" },
+        { name: "TypeScript", src: "/TypeScript.svg", color: "text-blue-300" },
+        { name: "vuetify", src: "/Vuetify.svg", color: "text-blue-500" },
+        { name: "vuejs", src: "/vue.js.svg", color: "text-green-400" },
         ];
-  const duplicatedItems = [...items, ...items];
+  const tripleItems = [...items, ...items, ...items];
 
   return (
     <div className="relative w-full overflow-hidden bg-[#000000]/1 py-10 ">
       {/* Lớp phủ mờ ở 2 đầu để trông mượt hơn */}
       <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
       <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
-      <div className="animate-infinite-scroll">
-        {duplicatedItems.map((item, index) => (
+      <div className="animate-infinite-scroll w-max">
+        {tripleItems.map((item, index) => (
           <div
             key={index}
             className="flex items-center justify-center px-12 group"

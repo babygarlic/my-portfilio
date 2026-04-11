@@ -3,7 +3,7 @@ import InfinityScroll from "../Animaions/InfinityScroll";
 export default function HomeSection () {
     return (
         <section id="home" className="w-full h-screen pdx-4 flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center justify-center text-center px-6 gap-4">
+        <div className="w-full max-w-[1280px] flex flex-col items-center justify-center text-center px-6 gap-4">
           {/* Kernel Status */}
           <div className="h-4 text-center 
                               uppercase
@@ -27,7 +27,7 @@ export default function HomeSection () {
         </div>
         <div>
           {/* infinite scroll indicator */}
-          <div className="py-10 overflow-hidden">
+         <div className="py-10 w-full overflow-hidden relative">
             <InfinityScroll />
           </div>
         </div>
