@@ -26,9 +26,6 @@ html.lenis {
   scroll-behavior: auto !important;
 }
 
-
-
-
 @keyframes scroll {
   from {
     transform: translateX(0);
