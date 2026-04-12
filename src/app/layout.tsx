@@ -26,7 +26,7 @@ export default function RootLayout({
         {/* Navbar */}
         <Navigation />
         {/* Main content */}
-        <main className=" pt-20 w-full overflow-x-hidden px-4">
+        <main className=" pt-15 w-full overflow-x-hidden px-4">
           {children}
         </main>
 

@@ -4,7 +4,11 @@ import { useEffect, useState } from "react"
 import Particles, { initParticlesEngine } from "@tsparticles/react"
 import { loadSlim } from "@tsparticles/slim"
 
-export default function ParticlesBackground() {
+interface ParticlesBackgroundProps {
+  turnOn?: boolean;
+}
+
+export default function ParticlesBackground({ turnOn }: ParticlesBackgroundProps) {
   const [init, setInit] = useState(false)
 
   useEffect(() => {
@@ -13,8 +17,7 @@ export default function ParticlesBackground() {
     }).then(() => setInit(true))
   }, [])
 
-  if (!init) return null
-
+  if (!init || !turnOn) return null
   return (
     <Particles
       options={{

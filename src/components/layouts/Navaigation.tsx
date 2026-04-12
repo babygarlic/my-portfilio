@@ -4,7 +4,7 @@ import { useLenis } from '@studio-freight/react-lenis'; // Import thêm dòng n�
 
 export default function Navigation() {
     const [isActive , setIsActive] = useState('home');
-    const navItems = ["home", "projects", "services", "about", "contact"];
+    const navItems = ["home","Stack", "projects", "services", "about", "contact"];
     const lenis = useLenis(); // Khởi tạo Lenis
 
     // Hàm xử lý cuộn khi click
@@ -13,7 +13,7 @@ export default function Navigation() {
         
         const targetId = item.toLowerCase();
         
-        // Dùng lenis để cuộn mượt
+        // Dùng lenis để cuộn mượt 
         lenis?.scrollTo(`#${targetId}`, {
             offset: -100, // Trừ hao chiều cao của Navbar
             duration: 1.5,
@@ -44,7 +44,7 @@ export default function Navigation() {
 
     return (
         <header className="fixed left-0 w-full z-50 bg-black/50 backdrop-blur">
-            <nav className="mx-auto w-full flex justify-between items-center py-4 px-8 uppercase ">
+            <nav className="mx-auto w-full flex justify-between items-center py-4 px-8 uppercase shadow-[0_6px_20px_rgba(0,251,251,0.1)] ">
                 <h1 className="text-xl font-bold tracking-tighter">ARCHITECT.OS</h1>
                 <ul className="flex gap-6 text-sm font-medium">
                     {navItems.map((item) => {

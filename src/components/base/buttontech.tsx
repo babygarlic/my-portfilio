@@ -8,22 +8,24 @@ interface ButtonTechProps {
     backgroundColor?: string;
     disabled?: boolean;
     className?: string;
+    borderColor?: string;
 }
 
 export const ButtonTech: React.FC<ButtonTechProps> = ({
     children,
     onClick,
-    variant = 'primary',
+    variant = 'outline',
     size = 'md',
-    backgroundColor,
+    backgroundColor = '#1F1F1F',
     disabled = false,
     className = '',
+    borderColor = 'blue-600',
 }) => {
-    const baseStyles = 'font-semibold transition-all duration-200 rounded-lg';
+    const baseStyles = 'font-normal transition-all duration-200 rounded-sm px-4 py-2 text-center al text-[9.6px] uppercase';
     const variants = {
         primary: 'bg-blue-600 text-white hover:bg-blue-700',
         secondary: 'bg-gray-600 text-white hover:bg-gray-700',
-        outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50',
+        outline: `border-${borderColor || 'blue-600'} text-${borderColor || 'blue-600'} hover:bg-${borderColor || 'blue-50'}`,
         custom: 'bg-custom text-white hover:bg-custom-hover',
     };
     const sizes = {
@@ -36,7 +38,8 @@ export const ButtonTech: React.FC<ButtonTechProps> = ({
         <button
             onClick={onClick}
             disabled={disabled}
-            className={`${baseStyles} ${backgroundColor || ''} ${variants[variant]} ${sizes[size]} ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${className}`}
+            className={`${baseStyles} ${backgroundColor || ''} ${variants[variant]} ${sizes[size]} ${disabled 
+            ? 'opacity-50 cursor-not-allowed' : ''} ${className}`}
         >
             {children}
         </button>
