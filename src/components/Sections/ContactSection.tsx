@@ -18,7 +18,8 @@ export default function ContactSection() {
     };
 
     return (
-        <section id="contact" className="w-full h-auto bg-[#0E0E0E]">
+        <section id="contact" className="w-full h-auto  justify-between flex  items-center">
+            <div className='w-full flex justify-between'>
             <div className="w-full max-w-[1280px] mx-auto flex flex-col px-8 pt-24 pb-16">
                 <div className="w-full h-auto">
                     <p className="text-[#DCB8FF] text-[12px] uppercase leading-[16px] tracking-[3.6px] mb-2">
@@ -84,6 +85,7 @@ export default function ContactSection() {
                         </ButtonTech>
                     </form>
                 </div>
+            </div>
             </div>
         </section>
     );

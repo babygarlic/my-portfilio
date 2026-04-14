@@ -1,21 +1,23 @@
 'use client';
 import { useState, useEffect } from "react";
-import { useLenis } from '@studio-freight/react-lenis'; // Import thêm dòng này
+import { useLenis } from '@studio-freight/react-lenis'; 
+import { useDateTimePicker } from "@/components/hooks/DateTimePicker";
+import DateTimePicker from "@/components/base/DateTimePicker";
 
 export default function Navigation() {
     const [isActive , setIsActive] = useState('home');
     const navItems = ["home","Stack", "projects", "services", "about", "contact"];
-    const lenis = useLenis(); // Khởi tạo Lenis
+    const lenis = useLenis();
 
-    // Hàm xử lý cuộn khi click
+    // DateTimePicker state & handlers
+    const { isOpen, toggleOpen, currentDate, handleDateChange, containerRef, dateFormat } = useDateTimePicker();
+
     const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, item: string) => {
-        e.preventDefault(); // Chặn hành vi "nhảy" mặc định của thẻ <a>
-        
+        e.preventDefault(); 
         const targetId = item.toLowerCase();
         
-        // Dùng lenis để cuộn mượt 
         lenis?.scrollTo(`#${targetId}`, {
-            offset: -100, // Trừ hao chiều cao của Navbar
+            offset: -100,
             duration: 1.5,
         });
 
@@ -24,7 +26,7 @@ export default function Navigation() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const scrollPosition = window.scrollY + 200; // Tăng offset để nhạy hơn
+            const scrollPosition = window.scrollY + 200;
             navItems.forEach((item) => {
                 const section = document.getElementById(item.toLowerCase());
                 if (section) {
@@ -53,7 +55,7 @@ export default function Navigation() {
                             <li key={item} className="relative group">
                                 <a
                                     href={`#${item.toLowerCase()}`}
-                                    onClick={(e) => handleScrollClick(e, item)} // Sử dụng hàm handle mới
+                                    onClick={(e) => handleScrollClick(e, item)}
                                     className={`
                                         transition-all duration-300 inline-block
                                         text-[12px] tracking-[1.2px] font-semibold
@@ -72,6 +74,7 @@ export default function Navigation() {
                         );
                     })}
                 </ul>
+                <div>
                  <button className="
                     h-8
                     text-center
@@ -82,8 +85,21 @@ export default function Navigation() {
                     transition-all duration-300 ease-in-out
                     hover:bg-cyan-400
                     hover:shadow-[0_0_15px_5px_rgba(34,211,238,0.6)]
-                    hover:scale-105">CONNECT</button>
+                    hover:scale-105"
+                    onClick={toggleOpen}
+                    >CONNECT</button>
+                                <DateTimePicker
+                    isOpen={isOpen}
+                    currentDate={currentDate}
+                    from={new Date(2020, 0, 1)}
+                    to={new Date()}
+                    dateFormat="YYYY-MM-DD HH:mm"
+                    onDateChange={handleDateChange}
+                    containerRef={containerRef}
+                />
+                </div>
             </nav>
+
         </header>
     )
 }
